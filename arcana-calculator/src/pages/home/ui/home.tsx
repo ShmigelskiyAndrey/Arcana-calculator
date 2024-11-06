@@ -1,7 +1,8 @@
 import { Banner } from "@/components/banner/banner"
+import { Selector } from "@/components/selector/selector"
 
 function HomePage() {
-  return <Banner></Banner>
+  return <Selector></Selector>
 }
 
 export { HomePage }

@@ -7,18 +7,10 @@ function Banner() {
       <Image
         className={styles.image}
         src="/header.webp"
-        width={390}
-        height={698}
+        width={800}
+        height={1400}
         quality={100}
         alt="Picture of the author"
-      />
-      <Image
-        className={styles.logo}
-        src="/logo.webp"
-        width={222}
-        height={152}
-        quality={100}
-        alt="Logo of the project"
       />
     </div>
   )
