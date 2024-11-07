@@ -1,10 +1,22 @@
 import styles from "./button.module.css";
 import cn from "classnames";
 
-function Button({ children, selected = false }: any) {
-  const btnclass = cn(styles.button, {[styles.selected]: selected})
+interface ButtonProps {
+  children: React.ReactNode;
+  style: "selected" | "unselected" | "calculate";
+  onClick: () => void;
+}
+
+function Button({ children, style, onClick }: ButtonProps) {
+
+  const btnClass = cn(styles.button, {
+    [styles.selected]: style === "selected",
+    [styles.unselected]: style === "unselected",
+    [styles.calculate]: style === "calculate",
+  });
+
   return (
-    <button className={btnclass}>{ children }</button>
+    <button className={btnClass} onClick={onClick}>{ children }</button>
   )
 }
 

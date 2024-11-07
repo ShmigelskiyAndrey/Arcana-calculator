@@ -1,0 +1,38 @@
+.container {
+  width: 80%;
+  max-height: 600px;
+  margin: 50px;
+  padding: 50px;
+  border-radius: 16px;
+  background-color: #fafafa;
+  color: #373636;
+  position: relative;
+}
+
+.title {
+  font-size: 32px;
+  margin-bottom: 50px;
+  max-width: 175px;
+}
+
+.maintext {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.text {
+  font-size: 14px;
+  display: inline;
+}
+
+.bold {
+  font-weight: bold;
+  display: inline;
+}
+
+.logo {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+}
