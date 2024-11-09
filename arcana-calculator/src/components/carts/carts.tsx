@@ -8,6 +8,9 @@ import styles from "./carts.module.css";
 function Carts() {
   return (
     <div className={styles.container}>
+      <Cart1></Cart1>
+      <Cart2></Cart2>
+      <Cart3></Cart3>
       <Cart4></Cart4>
     </div>
   )

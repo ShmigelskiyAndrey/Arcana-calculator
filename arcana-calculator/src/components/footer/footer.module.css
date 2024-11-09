@@ -1,0 +1,21 @@
+.container {
+  width: 100%;
+  background: linear-gradient(#1C1B20 0%, #323037 100%);
+  padding: 50px 20px;
+}
+
+.text {
+  max-width: 272px;
+  margin-bottom: 10px;
+}
+
+.logo {
+  margin: 10px 0;
+}
+
+.links {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 60px;
+}
