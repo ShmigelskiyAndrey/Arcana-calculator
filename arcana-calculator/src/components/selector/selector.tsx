@@ -4,6 +4,7 @@ import { Button } from "../button/button";
 import { useState } from "react";
 import styles from "./selector.module.css";
 import { Input } from "../input/input";
+import { Composite } from "../composite/composite";
 
 type ButtonType = "personality" | "composite";
 
@@ -54,10 +55,10 @@ function Selector() {
         </Input>
         <div className={styles.subtitle}>Месяц:</div>
         <Input
-          type="select"
+          type="number"
+          placeholder="Месяц"
           value={compositeMonth}
           onChange={(e) => setCompositeMonth(e.target.value)}
-          options={months}
         />
         <Input
           type="number"
@@ -67,6 +68,7 @@ function Selector() {
         />
       </div>
       <Button style={"calculate"} onClick={() => calculate()}>Рассчитать</Button>
+      <Composite></Composite>
     </div>
   )
 }

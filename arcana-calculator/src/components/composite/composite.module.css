@@ -1,0 +1,42 @@
+.container {
+  width: 90%;
+  max-width: 500px;
+  color: #373636;
+  padding: 20px 10px 25px 10px;
+  margin: auto;
+  margin-top: 80px;
+}
+
+.calender {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: center;
+  gap: 4px;
+}
+
+.daysfweekeek {
+  text-align: center;
+}
+
+.daysfweekeek:nth-child(6n) {
+  color: #B12542;
+}
+.daysfweekeek:nth-child(7n) {
+  color: #B12542;
+}
+
+.text {
+  text-align: center;
+  max-width: 300px;
+  margin: auto;
+  margin-top: 25px;
+}
+
+.summary {
+  width: 100%;
+  height: 100px;
+  background: #B12542;
+  color: #fff;
+  border-radius: 10px;
+  margin-top: 10px;
+}

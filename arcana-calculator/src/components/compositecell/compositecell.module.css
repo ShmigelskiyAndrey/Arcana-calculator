@@ -1,0 +1,18 @@
+.container {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/ 1;
+  box-sizing: border-box;
+  border-collapse: collapse;
+  border: 1px solid #F2F4F3;
+  border-radius: 5px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container:active {
+  background: linear-gradient(#E26E70 0%, #A61337 100%);
+  color: #fff;
+}

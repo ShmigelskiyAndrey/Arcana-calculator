@@ -1,17 +1,13 @@
 import Image from "next/image";
 import styles from "./cart1.module.css";
+import { Logo } from "../logo/logo";
 
 function Cart1() {
   return (
     <div className={styles.container}>
       <div className={styles.title}>Система 22 паттерна</div>
       <div className={styles.logo}>
-        <Image         
-        className={styles.image}
-        src="/logo1.svg"
-        width={84}
-        height={84}
-        alt="Logo of the company"/>
+        <Logo iconColor={"#E7E7E7"} circleColor={"#fff"} size={"84px"} iconSize={"60"}></Logo>
       </div>
       <div className={styles.maintext}>
         <div className={styles.text}>

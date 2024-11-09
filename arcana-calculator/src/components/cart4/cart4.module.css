@@ -1,8 +1,9 @@
 .container {
-  width: 80%;
+  width: 90%;
+  max-width: 500px;
   max-height: 600px;
-  margin: 50px;
   padding: 20px;
+  padding-top: 50px;
   border-radius: 16px;
   background: linear-gradient(-144deg, rgba(217,176,119,1) 0%, rgba(241,225,181,1) 48%, rgba(217,176,119,1) 100%);
   color: #373636;

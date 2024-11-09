@@ -3,7 +3,7 @@ import styles from "./banner.module.css";
 
 function Banner() {
   return (
-    <div className={styles.container}>
+    <header className={styles.container}>
       <Image
         className={styles.image}
         src="/header.webp"
@@ -12,7 +12,7 @@ function Banner() {
         quality={100}
         alt="Picture of the author"
       />
-    </div>
+    </header>
   )
 }
 
