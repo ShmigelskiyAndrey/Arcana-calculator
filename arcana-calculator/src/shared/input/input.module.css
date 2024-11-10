@@ -18,3 +18,10 @@
 .input:focus {
   outline: none;
 }
+
+@media (min-width: 768px) {
+  .inputContainer {
+    margin: 0;
+    max-width: none;
+  }
+}

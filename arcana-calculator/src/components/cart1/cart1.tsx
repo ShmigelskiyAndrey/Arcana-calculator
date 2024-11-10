@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./cart1.module.css";
-import { Logo } from "../logo/logo";
+import { Logo } from "../../shared/logo/logo";
 
 function Cart1() {
   return (

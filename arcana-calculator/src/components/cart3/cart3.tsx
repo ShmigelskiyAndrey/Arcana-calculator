@@ -1,5 +1,5 @@
 import styles from "./cart3.module.css";
-import { Logo } from "../logo/logo";
+import { Logo } from "../../shared/logo/logo";
 import Image from "next/image";
 
 function Cart3() {

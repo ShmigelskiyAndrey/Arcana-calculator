@@ -1,7 +1,7 @@
 "use client"
 
-import { Arrow } from "../arrow/arrow";
-import { Button } from "../button/button";
+import { Arrow } from "../../shared/arrow/arrow";
+import { Button } from "../../shared/button/button";
 import styles from "./buttonsblock.module.css";
 
 function Buttonsblock() {

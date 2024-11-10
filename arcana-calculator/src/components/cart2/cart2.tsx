@@ -1,6 +1,6 @@
 import styles from "./cart2.module.css";
-import { Arrow } from "../arrow/arrow";
-import { Logo } from "../logo/logo";
+import { Arrow } from "../../shared/arrow/arrow";
+import { Logo } from "../../shared/logo/logo";
 
 function Cart2() {
   return (

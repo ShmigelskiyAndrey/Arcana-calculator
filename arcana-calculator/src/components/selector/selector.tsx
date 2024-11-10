@@ -1,9 +1,9 @@
 'use client'
 
-import { Button } from "../button/button";
+import { Button } from "../../shared/button/button";
 import { useState } from "react";
 import styles from "./selector.module.css";
-import { Input } from "../input/input";
+import { Input } from "../../shared/input/input";
 import { Composite } from "../composite/composite";
 
 type ButtonType = "personality" | "composite";
@@ -38,36 +38,42 @@ function Selector() {
       </div>
       <div className={styles.form}>
         <div className={styles.subtitle}>Дата рождения:</div>
-        <Input type="number"
-          placeholder="Число"
-          value={day}
-          onChange={(e) => setDay(e.target.value)}>
-        </Input>
-        <Input type="number"
-          placeholder="Месяц"
-          value={month}
-          onChange={(e) => setMonth(e.target.value)}>
-        </Input>
-        <Input type="number"
-          placeholder="Год"
-          value={year}
-          onChange={(e) => setYear(e.target.value)}>
-        </Input>
+        <div className={styles.maininputs}>
+          <Input type="number"
+            placeholder="Число"
+            value={day}
+            onChange={(e) => setDay(e.target.value)}>
+          </Input>
+          <Input type="number"
+            placeholder="Месяц"
+            value={month}
+            onChange={(e) => setMonth(e.target.value)}>
+          </Input>
+          <Input type="number"
+            placeholder="Год"
+            value={year}
+            onChange={(e) => setYear(e.target.value)}>
+          </Input>
+        </div>
         <div className={styles.subtitle}>Месяц:</div>
-        <Input
-          type="number"
-          placeholder="Месяц"
-          value={compositeMonth}
-          onChange={(e) => setCompositeMonth(e.target.value)}
-        />
-        <Input
-          type="number"
-          placeholder="Год"
-          value={compositeYear}
-          onChange={(e) => setCompositeYear(e.target.value)}
-        />
+        <div className={styles.additionalinputs}>
+          <Input
+            type="number"
+            placeholder="Месяц"
+            value={compositeMonth}
+            onChange={(e) => setCompositeMonth(e.target.value)}
+          />
+          <Input
+            type="number"
+            placeholder="Год"
+            value={compositeYear}
+            onChange={(e) => setCompositeYear(e.target.value)}
+          />
+        </div>
       </div>
-      <Button style={"calculate"} onClick={() => calculate()}>Рассчитать</Button>
+      <div className={styles.calculatebutton}>
+        <Button style={"calculate"} onClick={() => calculate()}>Рассчитать</Button>
+      </div>
       <Composite></Composite>
     </div>
   )

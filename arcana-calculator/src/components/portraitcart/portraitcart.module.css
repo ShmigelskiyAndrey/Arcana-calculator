@@ -1,0 +1,11 @@
+.container {
+  width: 100%;
+  background-color: #FFFCF8;
+  text-align: center;
+  color: #BFAE93;
+  border-radius: 10px;
+}
+
+.value {
+  color: #373636;
+}

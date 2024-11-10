@@ -40,3 +40,10 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+@media (min-width: 768px) {
+  .container {
+    max-height: none;
+    height: 100%;
+  }
+}

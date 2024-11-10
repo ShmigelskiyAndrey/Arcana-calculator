@@ -1,5 +1,5 @@
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 500px;
   color: #373636;
   padding: 20px 10px 25px 10px;
@@ -39,4 +39,41 @@
   color: #fff;
   border-radius: 10px;
   margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 1100px;
+  }
+
+  .title {
+    display: none;
+  }
+
+  .text {
+    display: none;
+  }
+
+  .summary {
+    display: none;
+  }
+
+  .daysfweekeek {
+    background: linear-gradient(#323037 0%, #1C1B20 100%);
+    color: #fff;
+    border-radius: 6px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .daysfweekeek:nth-child(6n) {
+    background: linear-gradient(#E26E70 0%, #A61337 100%);
+    color: #fff;
+  }
+  .daysfweekeek:nth-child(7n) {
+    background: linear-gradient(#E26E70 0%, #A61337 100%);
+    color: #fff;
+  }
 }

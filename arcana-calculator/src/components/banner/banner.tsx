@@ -5,10 +5,18 @@ function Banner() {
   return (
     <header className={styles.container}>
       <Image
-        className={styles.image}
+        className={styles.imagemob}
         src="/header.webp"
         width={800}
         height={1400}
+        quality={100}
+        alt="Picture of the author"
+      />
+      <Image
+        className={styles.imagedesk}
+        src="/headerwide.webp"
+        width={1920}
+        height={600}
         quality={100}
         alt="Picture of the author"
       />
