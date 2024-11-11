@@ -1,5 +1,5 @@
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 500px;
   max-height: 600px;
   padding: 20px;
@@ -26,4 +26,27 @@
   margin-bottom: -60px;
   width: 100%;
   text-align: center;
+}
+
+@media (min-width: 960px) {
+  .container {
+    grid-column: 3 / 4;
+    flex-direction: row;
+    position: relative;
+    clip-path: inset(-50px 0 0 0);
+    max-height: none;
+    margin-top: 20px;
+  }
+
+  .imageContainer {
+    margin-bottom: 0;
+    position: absolute;
+    right: -80px;
+    top: -15px;
+    width: auto;
+  }
+
+  .text {
+    max-width: 280px;
+  }
 }

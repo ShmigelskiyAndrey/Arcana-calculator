@@ -13,6 +13,12 @@ function Cart3() {
         height={488}
         alt="Portrait of the author"/>
       </div>
+        <Image         
+        className={styles.imagedesk}
+        src="/portraitdesk.png"
+        width={250}
+        height={258}
+        alt="Portrait of the author"/>
       <div className={styles.logo}>
         <Logo iconColor={"#242329"} size={"33px"} iconSize={"23"} circleColor={"gradient"}></Logo>
       </div>

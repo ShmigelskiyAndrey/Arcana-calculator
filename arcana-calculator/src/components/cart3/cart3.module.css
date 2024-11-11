@@ -1,5 +1,5 @@
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 350px;
   max-height: 620px;
   border-radius: 16px;
@@ -31,9 +31,30 @@
   display: inline;
 }
 
-@media (min-width: 768px) {
-  .container {
-    flex-direction: row;
-  }
+.imagedesk {
+  display: none;
+}
 
+@media (min-width: 960px) {
+ .container {
+  grid-column: 3 / 4;
+  flex-direction: row;
+  max-width: none;
+  max-height: none;
+ }
+
+ .image {
+  display: none;
+ }
+
+ .imagedesk {
+  display: inline;
+  max-height: 200px;
+  border-radius: 16px;
+ }
+
+ .logo {
+  top: auto;
+  bottom: 5px;
+ }
 }
