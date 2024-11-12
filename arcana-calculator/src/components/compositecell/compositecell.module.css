@@ -49,7 +49,27 @@
   .calculation {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     margin: auto;
+    gap: 5px;
+  }
+
+  .calculation .calcvalue:nth-child(1) {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .calculation .calcvalue:nth-child(2) {
+    grid-area: 1 / 3 / 2 / 4;
+  }
+  .calculation .calcvalue:nth-child(3) {
+    grid-area: 1 / 5 / 2 / 6;
+  }
+  .calculation .calcvalue:nth-child(4) {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+  .calculation .calcvalue:nth-child(5) {
+    grid-area: 2 / 4 / 3 / 5;
+  }
+  .calculation .calcvalue:nth-child(6) {
+    grid-area: 3 / 3 / 4 / 4;
   }
 }

@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+// import { Cormorant_Garamond } from 'next/font/google';
 import "./globals.css";
+
+// const Garamond = Cormorant_Garamond({
+//   subsets: ['latin', 'cyrillic'],
+//   weight: ['400'],
+// });
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

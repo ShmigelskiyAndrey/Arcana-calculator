@@ -5,6 +5,7 @@ import { useState } from "react";
 import styles from "./selector.module.css";
 import { Input } from "../../shared/input/input";
 import { Composite } from "../composite/composite";
+import { Portrait } from "../portrait/portrait";
 
 type ButtonType = "personality" | "composite";
 
@@ -75,6 +76,7 @@ function Selector() {
         <Button style={"calculate"} onClick={() => calculate()}>Рассчитать</Button>
       </div>
       <Composite></Composite>
+      <Portrait></Portrait>
     </div>
   )
 }

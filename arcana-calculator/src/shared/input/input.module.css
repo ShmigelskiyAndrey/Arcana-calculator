@@ -16,6 +16,10 @@
 }
 
 .input:focus {
+  border: 1px solid #373636;
+}
+
+.input:focus {
   outline: none;
 }
 

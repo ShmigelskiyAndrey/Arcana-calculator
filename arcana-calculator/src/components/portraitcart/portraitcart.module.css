@@ -1,11 +1,32 @@
 .container {
   width: 100%;
+  height: 100%;
   background-color: #FFFCF8;
-  text-align: center;
   color: #BFAE93;
   border-radius: 10px;
+  max-width: 50px;
+  max-height: 75px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topCard {
+  background-color: #F3EBDD;
 }
 
 .value {
   color: #373636;
+}
+
+@media (min-width: 768px) {
+  .container {
+    box-sizing: border-box;
+    max-width: 115px;
+    max-height: none;
+    height: 115px;
+  }
 }
