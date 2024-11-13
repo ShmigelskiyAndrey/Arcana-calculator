@@ -12,9 +12,11 @@
 }
 
 .title {
-  font-size: 32px;
   margin-bottom: 50px;
-  max-width: 175px;
+  max-width: 200px;
+  font-family: Garamond;
+  font-size: 32px;
+  text-transform: uppercase;
 }
 
 .maintext {
@@ -27,11 +29,15 @@
   font-size: 14px;
   display: inline;
   max-width: 300px;
+  font-family: Stolz;
+  font-weight: 300;
+  font-size: 14;
 }
 
 .bold {
   font-weight: bold;
   display: inline;
+  font-weight: 600;
 }
 
 .logo {
@@ -41,12 +47,8 @@
 }
 
 @media (max-width: 400px) {
-  .logo {
-    position: static;
-    margin-bottom: 20px;
-  }
   .title {
-    margin-bottom: 20px;
+    max-width: 175px;
   }
 }
 
@@ -59,12 +61,26 @@
   }
 
   .logo {
-    left: 20px;
-    top: auto;
-    bottom: 30px;
+    position: static;
+    margin-top: 30px;
   }
 
   .text {
     max-width: 450px;
+  }
+
+  .title {
+    font-size: 48px;
+    max-width: none;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .logo {
+    position: absolute;
+    top: auto;
+    left: 20px;
+    bottom: 40px;
   }
 }

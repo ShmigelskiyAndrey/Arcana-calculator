@@ -19,11 +19,22 @@
 
 .fulldate {
   display: none;
-
+  font-family: Stolz;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .calculation {
   display: none;
+  font-family: Stolz;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.date {
+  font-family: Stolz;
+  font-weight: 300;
+  font-size: 16px;
 }
 
 @media (min-width: 768px) {

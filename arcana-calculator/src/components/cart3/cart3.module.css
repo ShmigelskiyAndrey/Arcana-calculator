@@ -24,10 +24,13 @@
 .text {
   padding: 20px;
   display: inline;
+  font-family: Stolz;
+  font-weight: 300;
+  font-size: 14px;
 }
 
 .bold {
-  font-weight: bold;
+  font-weight: 600;
   display: inline;
 }
 
@@ -56,5 +59,10 @@
  .logo {
   top: auto;
   bottom: 5px;
+  right: 5px;
+ }
+
+ .text {
+  padding-right: 40px;
  }
 }

@@ -6,9 +6,6 @@ function Cart1() {
   return (
     <div className={styles.container}>
       <div className={styles.title}>Система 22 паттерна</div>
-      <div className={styles.logo}>
-        <Logo iconColor={"#E7E7E7"} circleColor={"#fff"} size={"84px"} iconSize={"60"}></Logo>
-      </div>
       <div className={styles.maintext}>
         <div className={styles.text}>
           это эффективный и быстрый метод избавиться от разрушающих вашу жизнь механизмов и
@@ -18,6 +15,9 @@ function Cart1() {
           Это <div className={styles.bold}>подробная инструкция к жизни человека, </div>
           через которую становятся понятны его травмы, его периоды жизни и выборы, его реакции и восприятие.
         </div>
+      </div>
+      <div className={styles.logo}>
+        <Logo iconColor={"#E7E7E7"} circleColor={"#fff"} size={"84px"} iconSize={"60"}></Logo>
       </div>
     </div>
   )

@@ -20,10 +20,13 @@
   margin-bottom: 20px;
   display: inline;
   max-width: 420px;
+  font-family: Stolz;
+  font-weight: 300;
+  font-size: 14px;
 }
 
 .bold {
-  font-weight: bold;
+  font-weight: 600;
   display: inline;
 }
 
@@ -39,6 +42,15 @@
   background: linear-gradient(-144deg, rgba(217,176,119,1) 0%, rgba(241,225,181,1) 48%, rgba(217,176,119,1) 100%);
     background-clip: text;
     -webkit-text-fill-color: transparent;
+  font-family: Stolz;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.text {
+  font-family: Garamond;
+  font-size: 24px;
 }
 
 @media (min-width: 960px) {

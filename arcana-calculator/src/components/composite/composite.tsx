@@ -34,7 +34,10 @@ function Composite() {
         {weeks.map((week, index) => <div key={index} className={styles.daysfweekeek}>{week}</div>)}
         {days.map((day, index) => <Compositecell key={index}>{day}</Compositecell>)}
       </div>
-      <div className={styles.summary}></div>
+      <div className={styles.summary}>
+        <div className={styles.fulldate}>01 01 2001</div>
+        <div className={styles.arcanas}></div>
+      </div>
       <div className={styles.text}>Расчет всех дней на одном экране можно посмотреть в полноэкранной версии с компьютера</div>
     </div>
   )

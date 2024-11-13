@@ -1,5 +1,5 @@
 .container {
-  width: 90%;
+  width: calc(100% - 40px);
   background-color: #FAFAFA;
   border-radius: 16px;
   color: #373636;
@@ -15,6 +15,8 @@
   margin-bottom: 55px;
   padding: 50px 10px 0 10px;
   font-family: Garamond;
+  text-transform: uppercase;
+  font-size: 32px;
 }
 
 .buttons {
@@ -37,8 +39,10 @@
 
 .subtitle {
   margin-top: 20px;
-  font-size: 16px;
   margin-bottom: 6px;
+  font-family: Stolz;
+  font-weight: 300;
+  font-size: 16px;
 }
 
 .maininputs {
@@ -57,15 +61,24 @@
   justify-content: center;
 }
 
-@media (max-width: 300px) {
+.calculatebutton {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 400px) {
   .title {
-    padding: 50px 5px 0 5px;
+    font-size: 24px;
   }
 }
 
 @media (min-width: 768px) {
   .container {
     max-width: none;
+  }
+
+  .title {
+    font-size: 48px;
   }
 
   .buttons {

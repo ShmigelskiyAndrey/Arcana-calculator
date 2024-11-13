@@ -16,6 +16,9 @@
 
 .daysfweekeek {
   text-align: center;
+  font-family: Stolz;
+  font-weight: 300;
+  font-size: 14px;
 }
 
 .daysfweekeek:nth-child(6n) {
@@ -30,6 +33,9 @@
   max-width: 300px;
   margin: auto;
   margin-top: 25px;
+  font-family: Stolz;
+  font-weight: 300;
+  font-size: 14px;
 }
 
 .summary {
@@ -39,6 +45,26 @@
   color: #fff;
   border-radius: 10px;
   margin-top: 10px;
+}
+
+.title {
+  font-family: Garamond;
+  text-transform: uppercase;
+  font-size: 32px;
+}
+
+.fulldate {
+  padding-top: 15px;
+  margin-bottom: 10px;
+  font-family: Stolz;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.arcanas {
+  font-family: Stolz;
+  font-weight: 400;
+  font-size: 12px;
 }
 
 @media (min-width: 768px) {
@@ -67,6 +93,8 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    font-family: Garamond;
+    font-size: 24px;
   }
   .daysfweekeek:nth-child(6n) {
     background: linear-gradient(#E26E70 0%, #A61337 100%);

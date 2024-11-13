@@ -15,11 +15,14 @@
   display: inline;
   max-width: 420px;
   margin-bottom: 20px;
+  font-family: Stolz;
+  font-weight: 300;
+  font-size: 14;
 }
 
 .bold {
   display: inline;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .imageContainer {
@@ -35,6 +38,7 @@
     position: relative;
     clip-path: inset(-50px 0 0 0);
     max-height: none;
+    max-width: none;
     margin-top: 20px;
   }
 
