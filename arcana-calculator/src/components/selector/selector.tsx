@@ -76,7 +76,7 @@ function Selector() {
         <Button style={"calculate"} onClick={() => calculate()}>Рассчитать</Button>
       </div>
       <Composite></Composite>
-      <Portrait></Portrait>
+      <Portrait day={day} month={month} year={year}></Portrait>
     </div>
   )
 }

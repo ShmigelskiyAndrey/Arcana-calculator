@@ -101,6 +101,11 @@
   grid-area: 4 / 4 / 5 / 5;
 }
 
+@media (max-width: 400px) {
+  .title {
+    width: 200px;
+  }
+}
 
 @media (min-width: 768px) {
   .container {
