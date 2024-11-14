@@ -2,6 +2,9 @@ import { Portraitcart } from "../portraitcart/portraitcart";
 import styles from "./portrait.module.css";
 
 function Portrait({ day, month, year }:any) {
+  const formattedDay = day.padStart(2, "0");
+  const formattedMonth = month.padStart(2, "0");
+  const fullDate = `${formattedDay}.${formattedMonth}.${year}`;
 
   return (
     <div className={styles.container}>
@@ -13,7 +16,7 @@ function Portrait({ day, month, year }:any) {
         <Portraitcart className={styles.topCard5} top={"true"} pos={"14"} day={day} month={month} year={year}/>
       </div>
       <div className={styles.midcarts}>
-        <div className={styles.title}>01.01.2001</div>
+        <div className={styles.title}>{fullDate}</div>
         <div className={styles.carts}>
           <Portraitcart className={styles.midCard1} pos={"12"} day={day} month={month} year={year}/>
           <Portraitcart className={styles.midCard2} pos={"1"} day={day} month={month} year={year}/>
@@ -29,15 +32,15 @@ function Portrait({ day, month, year }:any) {
       <div className={styles.botcarts}>
         <div className={styles.title}>подсознание</div>
         <div className={styles.carts}>
-          <Portraitcart className={styles.botCard1} pos={"a"} day={day} month={month} year={year}/>
-          <Portraitcart className={styles.botCard2} pos={"g1"} day={day} month={month} year={year}/>
-          <Portraitcart className={styles.botCard3} pos={"b"} day={day} month={month} year={year}/>
-          <Portraitcart className={styles.botCard4} pos={"c"} day={day} month={month} year={year}/>
-          <Portraitcart className={styles.botCard5} pos={"g2"} day={day} month={month} year={year}/>
-          <Portraitcart className={styles.botCard6} pos={"d"} day={day} month={month} year={year}/>
-          <Portraitcart className={styles.botCard7} pos={"e"} day={day} month={month} year={year}/>
-          <Portraitcart className={styles.botCard8} pos={"f"} day={day} month={month} year={year}/>
-          <Portraitcart className={styles.botCard9} pos={"h"} day={day} month={month} year={year}/>
+          <Portraitcart className={styles.botCard1} pos={"A"} day={day} month={month} year={year}/>
+          <Portraitcart className={styles.botCard2} pos={"G1"} day={day} month={month} year={year}/>
+          <Portraitcart className={styles.botCard3} pos={"B"} day={day} month={month} year={year}/>
+          <Portraitcart className={styles.botCard4} pos={"C"} day={day} month={month} year={year}/>
+          <Portraitcart className={styles.botCard5} pos={"G2"} day={day} month={month} year={year}/>
+          <Portraitcart className={styles.botCard6} pos={"D"} day={day} month={month} year={year}/>
+          <Portraitcart className={styles.botCard7} pos={"E"} day={day} month={month} year={year}/>
+          <Portraitcart className={styles.botCard8} pos={"F"} day={day} month={month} year={year}/>
+          <Portraitcart className={styles.botCard9} pos={"H"} day={day} month={month} year={year}/>
         </div>
       </div>
     </div>
