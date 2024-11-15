@@ -14,7 +14,7 @@ function Selector() {
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
-  const [compositeMonth, setCompositeMonth] = useState("Октябрь");
+  const [compositeMonth, setCompositeMonth] = useState("");
   const [compositeYear, setCompositeYear] = useState("2024");
 
   const months = [
@@ -75,7 +75,7 @@ function Selector() {
       <div className={styles.calculatebutton}>
         <Button style={"calculate"} onClick={() => calculate()}>Рассчитать</Button>
       </div>
-      <Composite></Composite>
+      <Composite day={day} month={month} year={year} compositeMonth={compositeMonth} compositeYear={compositeYear}></Composite>
       <Portrait day={day} month={month} year={year}></Portrait>
     </div>
   )
