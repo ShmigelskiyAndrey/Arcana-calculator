@@ -1,13 +1,16 @@
 import { Portraitcart } from "../portraitcart/portraitcart";
 import styles from "./portrait.module.css";
+import cn from "classnames";
 
-function Portrait({ day, month, year }:any) {
+function Portrait({ day, month, year, visability }:any) {
   const formattedDay = day.padStart(2, "0");
   const formattedMonth = month.padStart(2, "0");
   const fullDate = `${formattedDay}.${formattedMonth}.${year}`;
 
+  const containerClass = cn(styles.container, {[styles.hidden]: visability === "hidden",})
+
   return (
-    <div className={styles.container}>
+    <div className={containerClass}>
       <div className={styles.topcarts}>
         <Portraitcart className={styles.topCard1} top={"true"} pos={"13"} day={day} month={month} year={year}/>
         <Portraitcart className={styles.topCard2} top={"true"} pos={"9"} day={day} month={month} year={year}/>

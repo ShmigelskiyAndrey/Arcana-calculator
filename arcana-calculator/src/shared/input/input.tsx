@@ -6,9 +6,10 @@ interface InputFieldProps {
   placeholder?: string;
   value: string | number;
   onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
+  validate?: (value: string) => string;
 }
 
-function Input({ type, placeholder, value, onChange }: InputFieldProps) {
+function Input({ type, placeholder, value, onChange, validate }: InputFieldProps) {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
@@ -26,6 +27,24 @@ function Input({ type, placeholder, value, onChange }: InputFieldProps) {
       };
     }
   }, []);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let newValue = event.target.value;
+
+    if (validate) {
+      newValue = validate(newValue);
+    }
+
+    onChange({ ...event, target: { ...event.target, value: newValue } });
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    const allowedKeys = ["Backspace", "Delete", "Tab", "ArrowLeft", "ArrowRight"];
+    if (!/^\d$/.test(event.key) && !allowedKeys.includes(event.key)) {
+      event.preventDefault();
+    }
+  };
+
   return (
     <div className={styles.inputContainer}>
         <input
@@ -34,7 +53,8 @@ function Input({ type, placeholder, value, onChange }: InputFieldProps) {
           type={type}
           placeholder={placeholder}
           value={value}
-          onChange={onChange}
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
         />
     </div>
   );

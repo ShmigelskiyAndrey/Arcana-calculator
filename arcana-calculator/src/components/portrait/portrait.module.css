@@ -27,6 +27,10 @@
   text-transform: uppercase;
 }
 
+.hidden {
+  display: none;
+}
+
 
 .topCard1 {
   grid-area: 1 / 1 / 2 / 2;

@@ -3,7 +3,7 @@ import cn from "classnames";
 
 interface ButtonProps {
   children: React.ReactNode;
-  style: "selected" | "unselected" | "calculate" | "info" | "calculateerr";
+  style: "selected" | "unselected" | "calculate" | "info" | "calculateerr" | "disabled";
   onClick: () => void;
 }
 
@@ -15,6 +15,7 @@ function Button({ children, style, onClick }: ButtonProps) {
     [styles.calculate]: style === "calculate",
     [styles.calculateerr]: style === "calculateerr",
     [styles.info]: style === "info",
+    [styles.disabled]: style === "disabled",
   });
 
   return (

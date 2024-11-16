@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import styles from "./compositecell.module.css";
+import cn from "classnames";
 
 interface CompositecellProps {
   date: string;
@@ -8,7 +9,8 @@ interface CompositecellProps {
   day: string;
   month: string;
   year: string;
-  onCellClick?: (arcana: string[]) => void;
+  onCellClick?: (arcana: string[], date: string) => void;
+  isSelected: boolean;
 }
 
 function toRoman(num: number): string {
@@ -23,7 +25,7 @@ function toRoman(num: number): string {
   return romanNumerals[num] || "";
 }
 
-function Compositecell({ day, month, year, compositeMonth, compositeYear, date, onCellClick }: CompositecellProps) {
+function Compositecell({ day, month, year, compositeMonth, compositeYear, date, onCellClick, isSelected }: CompositecellProps) {
   const formattedDay = date.padStart(2, "0");
   const formattedMonth = compositeMonth.toString().padStart(2, "0");
   const fullDate = `${formattedDay}.${formattedMonth}.${compositeYear}`;
@@ -54,13 +56,15 @@ function Compositecell({ day, month, year, compositeMonth, compositeYear, date, 
         toRoman(fourthPosValue),
         toRoman(fifthPosValue),
         toRoman(sixthPosValue),
-      ]);
+      ], fullDate);
     }
   };
 
+  const containerClass = cn(styles.container, {
+    [styles.selected]: isSelected === true})
 
   return (
-    <div className={styles.container} onClick={handleClick}>
+    <div className={containerClass} onClick={handleClick}>
       <div className={styles.date}>{date}</div>
       <div className={styles.fulldate}>{fullDate}</div>
       <div className={styles.calculation}>

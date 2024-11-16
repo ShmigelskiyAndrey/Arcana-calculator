@@ -13,6 +13,14 @@ function Banner() {
         alt="Picture of the author"
       />
       <Image
+        className={styles.imagemob2}
+        src="/headermob2.webp"
+        width={800}
+        height={1400}
+        quality={100}
+        alt="Picture of the author"
+      />
+      <Image
         className={styles.imagedesk}
         src="/headerwide.webp"
         width={1920}
