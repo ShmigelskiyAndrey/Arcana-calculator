@@ -1,4 +1,4 @@
-import { HomePage } from "@/pages/home/index";
+import { HomePage } from "@/_pages/home/index";
 import styles from "./page.module.css";
 
 export default function Home() {
