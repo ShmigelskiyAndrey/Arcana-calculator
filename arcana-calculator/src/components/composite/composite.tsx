@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Compositecell } from "../compositecell/compositecell";
 import styles from "./composite.module.css";
 import cn from "classnames";
 
-function Composite({ day, month, year, compositeMonth, compositeYear, visability }:any) {
+function Composite({ day, month, year, compositeMonth, compositeYear, visability, onResetSelectedCell }:any) {
   const [selectedArcana, setSelectedArcana] = useState<string[]>([]);
   const [fullDate, setFullDate] = useState<string>();
   const [selectedCellIndex, setSelectedCellIndex] = useState<number | null>(null);
@@ -13,6 +13,14 @@ function Composite({ day, month, year, compositeMonth, compositeYear, visability
     setFullDate(fullDate);
     setSelectedCellIndex(index);
   };
+
+  useEffect(() => {
+    if (onResetSelectedCell) {
+      setSelectedArcana([]);
+      setFullDate(undefined);
+      setSelectedCellIndex(null);
+    }
+  }, [onResetSelectedCell]);
 
   const containerClass = cn(styles.container, {[styles.hidden]: visability === "hidden",})
 

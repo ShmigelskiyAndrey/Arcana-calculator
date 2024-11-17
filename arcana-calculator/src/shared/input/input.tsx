@@ -7,9 +7,10 @@ interface InputFieldProps {
   value: string | number;
   onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
   validate?: (value: string) => string;
+  onBlur?: (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
 }
 
-function Input({ type, placeholder, value, onChange, validate }: InputFieldProps) {
+function Input({ type, placeholder, value, onChange, validate, onBlur }: InputFieldProps) {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
@@ -45,6 +46,12 @@ function Input({ type, placeholder, value, onChange, validate }: InputFieldProps
     }
   };
 
+  const handleBlur = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (onBlur) {
+      onBlur(event);
+    }
+  };
+
   return (
     <div className={styles.inputContainer}>
         <input
@@ -55,6 +62,7 @@ function Input({ type, placeholder, value, onChange, validate }: InputFieldProps
           value={value}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
+          onBlur={handleBlur}
         />
     </div>
   );

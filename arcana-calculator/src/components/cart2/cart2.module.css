@@ -55,7 +55,6 @@
 
 @media (min-width: 960px) {
   .container {
-    max-height: none;
     height: 100%;
     grid-column: 2 / 3;
     grid-row: 1 / 3;

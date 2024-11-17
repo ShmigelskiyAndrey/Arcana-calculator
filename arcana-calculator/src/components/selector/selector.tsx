@@ -19,6 +19,12 @@ function Selector() {
   const [compositeVisible, setCompositeVisible] = useState("notVisible");
   const [portraitVisible, setPortraitVisible] = useState("notVisible");
   const [titleValue, setTitleValue] = useState("Рассчитать психологический портрет");
+  const [resetCompositeState, setResetCompositeState] = useState(false);
+
+  const handleResetComposite = () => {
+    setResetCompositeState(true);
+    setTimeout(() => setResetCompositeState(false), 0);
+  };
 
   const handleButtonClick = (buttonType: ButtonType) => {
     setCompositeVisible("notVisible");
@@ -36,6 +42,8 @@ function Selector() {
     if (!inputsValidationCheck()) {
       return;
     }
+
+    handleResetComposite();
 
     if (selectedButton === "personality") {
       setTitleValue("психологический портрет")
@@ -57,26 +65,46 @@ function Selector() {
     return true;
   };
 
-  const validateYear = (value: string) => {
+  const validateYear = (value: string, isComposite = false) => {
     setCompositeVisible("notVisible")
     setPortraitVisible("notVisible")
-    const sanitized = value.replace(/\D/g, "");
-    return sanitized.slice(0, 4);
+    const sanitized = value.replace(/\D/g, "").slice(0, 4);
+
+    if (!isComposite && day && month) {
+      const correctedDay = correctDayOnBlur(day, month, sanitized);
+      setDay(correctedDay);
+    }
+
+    return sanitized;
   };
 
   const validateMonth = (value: string) => {
     setCompositeVisible("notVisible")
     setPortraitVisible("notVisible")
     const sanitized = value.replace(/\D/g, "");
-    let numericValue = parseInt(sanitized, 10);
-    if (isNaN(numericValue)) return "";
-    if (numericValue < 1) {numericValue = 1}
-    return Math.min(Math.max(numericValue, 1), 12).toString();
+
+    return sanitized;
   };
 
-  const validateDay = (value: string, month: string, year: string) => {
+  const correctMonthOnBlur = (value: string, isComposite = false) => {
+    const numericValue = parseInt(value, 10);
+    const correctedMonth = isNaN(numericValue) || numericValue < 1 ? "1" : Math.min(numericValue, 12).toString();
+
+    if (!isComposite && day && year) {
+      const correctedDay = correctDayOnBlur(day, correctedMonth, year);
+      setDay(correctedDay);
+    }
+
+    return correctedMonth;
+  };
+
+  const validateDay = (value: string) => {
     setCompositeVisible("notVisible")
     setPortraitVisible("notVisible")
+    return value.replace(/\D/g, "");
+  };
+
+  const correctDayOnBlur = (value: string, month: string, year: string) => {
     const sanitized = value.replace(/\D/g, "");
     const numericValue = parseInt(sanitized, 10);
   
@@ -86,8 +114,8 @@ function Selector() {
       ? new Date(yearNumber, monthNumber, 0).getDate()
       : 31;
   
-    if (isNaN(numericValue)) return "";
-    return Math.min(Math.max(numericValue, 1), maxDays).toString();
+    if (isNaN(numericValue) || numericValue < 1) return "1";
+    return Math.min(numericValue, maxDays).toString();
   };
 
   return (
@@ -103,12 +131,15 @@ function Selector() {
           <Input type="number"
             placeholder="Число"
             value={day}
-            onChange={(e) => setDay(validateDay(e.target.value, month, year))}>
+            onChange={(e) => setDay(validateDay(e.target.value))}
+            onBlur={() => setDay(correctDayOnBlur(day, month, year))}
+            >
           </Input>
           <Input type="number"
             placeholder="Месяц"
             value={month}
             onChange={(e) => setMonth(validateMonth(e.target.value))}
+            onBlur={() => setMonth(correctMonthOnBlur(month))} 
             >
           </Input>
           <Input type="number"
@@ -126,12 +157,13 @@ function Selector() {
               placeholder="Месяц"
               value={compositeMonth}
               onChange={(e) => setCompositeMonth(validateMonth(e.target.value))}
+              onBlur={() => setCompositeMonth(correctMonthOnBlur(compositeMonth, true))} 
             />
             <Input
               type="number"
               placeholder="Год"
               value={compositeYear}
-              onChange={(e) => setCompositeYear(validateYear(e.target.value))}
+              onChange={(e) => setCompositeYear(validateYear(e.target.value, true))}
             />
           </div>
         </>
@@ -142,7 +174,7 @@ function Selector() {
         <Button style={inputsValidationCheck() ? "calculate" : "disabled"}  onClick={() => calculate()}>Рассчитать</Button>
       </div>
       <Composite day={day} month={month} year={year} compositeMonth={compositeMonth} compositeYear={compositeYear}
-      visability={compositeVisible === "notVisible" ? "hidden" : "visible"}></Composite>
+      visability={compositeVisible === "notVisible" ? "hidden" : "visible"} onResetSelectedCell={resetCompositeState}></Composite>
       <Portrait day={day} month={month} year={year} visability={portraitVisible === "notVisible" ? "hidden" : "visible"}></Portrait>
     </div>
   )

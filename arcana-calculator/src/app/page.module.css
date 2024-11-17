@@ -1,5 +1,6 @@
 .page {
   background-color: #fff;
+  min-width: 320px;
 }
 
 /* .page {

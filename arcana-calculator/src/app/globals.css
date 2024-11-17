@@ -68,3 +68,11 @@ a {
     color-scheme: dark;
   }
 }
+
+
+@media (max-width: 320px) {
+  html,
+  body {
+  overflow-x: auto;
+}
+}
