@@ -5,8 +5,12 @@ import cn from "classnames";
 
 function Composite({ day, month, year, compositeMonth, compositeYear, visability, onResetSelectedCell }:any) {
   const [selectedArcana, setSelectedArcana] = useState<string[]>([]);
+  const weeks = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
   const [fullDate, setFullDate] = useState<string>();
   const [selectedCellIndex, setSelectedCellIndex] = useState<number | null>(null);
+  const [days, setDays] = useState<string[]>([]);
+  const [firstCellData, setFirstCellData] = useState<{ arcana: string[], fullDate: string} | null>(null);
+  const [firstElemIndex, setFirstElemIndex] = useState<number | null>(null);
 
   const handleCellClick = (arcana: string[], fullDate: string, index: number) => {
     setSelectedArcana(arcana); 
@@ -16,46 +20,61 @@ function Composite({ day, month, year, compositeMonth, compositeYear, visability
 
   useEffect(() => {
     if (onResetSelectedCell) {
-      setSelectedArcana([]);
-      setFullDate(undefined);
-      setSelectedCellIndex(null);
+      setSelectedArcana(firstCellData?.arcana || []);
+      setFullDate(firstCellData?.fullDate);
+      setSelectedCellIndex(firstElemIndex);
     }
   }, [onResetSelectedCell]);
 
-  const containerClass = cn(styles.container, {[styles.hidden]: visability === "hidden",})
-
-  const weeks = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
-  compositeMonth--;
-  const date = new Date(compositeYear, compositeMonth);
-  let firstDayThisMonth = (date.getDay() + 6) % 7;
-  let days = [];
-
-  for (let i = 0; i < firstDayThisMonth; i++) {
-    days.push('')
+  const setFirstCell = (arcana: string[], fullDate: string) => {
+    setFirstCellData({ arcana, fullDate });
   };
 
-  for (let i = 1; date.getMonth() === compositeMonth; i++) {
-    days.push(i.toString());
-    date.setDate(date.getDate() + 1)
-  }
+  useEffect(() => {
+    const localCompositeMonth = compositeMonth - 1;
+    const date = new Date(compositeYear, localCompositeMonth);
+    const localDays: string[] = [];
+    const firstDayThisMonth = (date.getDay() + 6) % 7;
 
-  let firstDayNextMonth = (date.getDay() + 6) % 7;
-
-  if (firstDayNextMonth !== 0) {
-    for (let i = firstDayNextMonth; i < 7; i++) {
-      days.push('');
+    for (let i = 0; i < firstDayThisMonth; i++) {
+      localDays.push('');
     }
-  }
-  compositeMonth++;
+
+    for (let i = 1; date.getMonth() === localCompositeMonth; i++) {
+      localDays.push(i.toString());
+      date.setDate(date.getDate() + 1);
+    }
+
+    const firstDayNextMonth = (date.getDay() + 6) % 7;
+    if (firstDayNextMonth !== 0) {
+      for (let i = firstDayNextMonth; i < 7; i++) {
+        localDays.push('');
+      }
+    }
+
+    setFirstElemIndex(localDays.findIndex((d) => d !== ""));
+    setDays(localDays);
+  }, [compositeYear, compositeMonth]);
+
+  const containerClass = cn(styles.container, {[styles.hidden]: visability === "hidden",})
 
   return (
     <div className={containerClass}>
       <div className={styles.title}></div>
       <div className={styles.calender}>
         {weeks.map((week, index) => <div key={index} className={styles.daysfweekeek}>{week}</div>)}
-        {days.map((date, index) => <Compositecell key={index} day={day} month={month} year={year} 
-            compositeMonth={compositeMonth} compositeYear={compositeYear} date={date} 
-            onCellClick={(arcana, fullDate) => handleCellClick(arcana, fullDate, index)} isSelected={selectedCellIndex === index}>
+        {days.map((date, index) => 
+          <Compositecell 
+          key={index} 
+          day={day} 
+          month={month} 
+          year={year} 
+          compositeMonth={compositeMonth} 
+          compositeYear={compositeYear} 
+          date={date} 
+          onCellClick={(arcana, fullDate) => handleCellClick(arcana, fullDate, index)} 
+          isSelected={selectedCellIndex === index}
+          setFirstCell={index === firstElemIndex ? setFirstCell : undefined}>
           </Compositecell>)}
       </div>
       <div className={styles.summary}>

@@ -11,6 +11,7 @@ interface CompositecellProps {
   year: string;
   onCellClick?: (arcana: string[], date: string) => void;
   isSelected: boolean;
+  setFirstCell?: (arcana: string[], fullDate: string) => void;
 }
 
 function toRoman(num: number): string {
@@ -25,7 +26,7 @@ function toRoman(num: number): string {
   return romanNumerals[num] || "";
 }
 
-function Compositecell({ day, month, year, compositeMonth, compositeYear, date, onCellClick, isSelected }: CompositecellProps) {
+function Compositecell({ day, month, year, compositeMonth, compositeYear, date, onCellClick, isSelected, setFirstCell }: CompositecellProps) {
   const formattedDay = date.padStart(2, "0");
   const formattedMonth = compositeMonth.toString().padStart(2, "0");
   const fullDate = `${formattedDay}.${formattedMonth}.${compositeYear}`;
@@ -36,9 +37,6 @@ function Compositecell({ day, month, year, compositeMonth, compositeYear, date, 
   const numericCompositeMonth = parseInt(compositeMonth, 10);
   const yearSum = year.split('').map(char => parseInt(char, 10)).reduce((acc, num) => acc + num, 0);
   const compositeYearSum = compositeYear.toString().split('').map(char => parseInt(char, 10)).reduce((acc, num) => acc + num, 0);
-
-
-  if (!date) {return <div className={styles.container}></div>}
 
   let firstPosValue = ((numericDay + numericDate - 1) % 22) + 1;
   let secondPosValue = ((numericMonth + numericCompositeMonth - 1) % 22) + 1;
@@ -59,6 +57,21 @@ function Compositecell({ day, month, year, compositeMonth, compositeYear, date, 
       ], fullDate);
     }
   };
+
+  useEffect(() => {
+    if (setFirstCell && date === "1") {
+      setFirstCell([
+        firstPosValue.toString(), 
+        secondPosValue.toString(), 
+        thirdPosValue.toString(), 
+        fourthPosValue.toString(), 
+        fifthPosValue.toString(), 
+        sixthPosValue.toString()
+      ], fullDate);
+    }
+  }, [fullDate]);
+
+  if (!date) {return <div className={styles.container}></div>}
 
   const containerClass = cn(styles.container, {
     [styles.selected]: isSelected === true})
