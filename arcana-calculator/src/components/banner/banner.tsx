@@ -6,7 +6,7 @@ function Banner() {
     <header className={styles.container}>
       <Image
         className={styles.imagemob}
-        src="/header.webp"
+        src="/header1.webp"
         width={800}
         height={1400}
         quality={100}
@@ -14,7 +14,7 @@ function Banner() {
       />
       <Image
         className={styles.imagemob2}
-        src="/headermob2.webp"
+        src="/header2.webp"
         width={800}
         height={1400}
         quality={100}
@@ -22,7 +22,7 @@ function Banner() {
       />
       <Image
         className={styles.imagedesk}
-        src="/headerwide.webp"
+        src="/header.webp"
         width={1920}
         height={600}
         quality={100}
