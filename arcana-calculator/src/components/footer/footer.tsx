@@ -22,10 +22,10 @@ function Footer() {
           <div className={styles.text}>г. Ростов-на-Дону</div>
           <div className={styles.text}>info@co-creationoflife.ru</div>
           <div className={styles.links}>
-            <div className={styles.link}><Image src="/icons/whatsupicon.svg" width={54} height={54} alt="Whatsup Icon" /></div>
-            <div className={styles.link}><Image src="/icons/telegramicon.svg" width={54} height={54} alt="Telegram Icon" /></div>
-            <div className={styles.link}><Image src="/icons/insticon.svg" width={54} height={54} alt="Instagram Icon" /></div>
-            <div className={styles.link}><Image src="/icons/mailicon.svg" width={54} height={54} alt="Mail Icon" /></div>
+            <div className={styles.link}><a href="https://wa.me/+79313780087" target="blank"><Image src="/icons/whatsupicon.svg" width={54} height={54} alt="Whatsup Icon" /></a></div>
+            <div className={styles.link}><a href="https://t.me/AnastasiyaMatveenko" target="blank"><Image src="/icons/telegramicon.svg" width={54} height={54} alt="Telegram Icon" /></a></div>
+            <div className={styles.link}><a href="https://www.instagram.com/lia.cher" target="blank"><Image src="/icons/insticon.svg" width={54} height={54} alt="Instagram Icon" /></a></div>
+            <div className={styles.link}><a href="https://co-creationoflife.ru/cms/system/contact" target="blank"><Image src="/icons/mailicon.svg" width={54} height={54} alt="Mail Icon" /></a></div>
           </div>
         </div>
       </div>

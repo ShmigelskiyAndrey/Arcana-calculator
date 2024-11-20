@@ -6,7 +6,17 @@ import styles from "./buttonsblock.module.css";
 
 function Buttonsblock() {
   const onClick = (text: any) => {
-    console.log(text)
+    if (text === "school") {
+      location.href='https://co-creationoflife.info/school1'
+    };
+
+    if (text === "tg") {
+      location.href='https://t.me/liachernew'
+    };
+
+    if (text === "chat") {
+      location.href='https://t.me/+jVugFlW23480MzAy'
+    };
   }
 
   return (

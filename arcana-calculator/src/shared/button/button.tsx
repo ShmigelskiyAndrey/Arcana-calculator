@@ -4,7 +4,7 @@ import cn from "classnames";
 interface ButtonProps {
   children: React.ReactNode;
   style: "selected" | "unselected" | "calculate" | "info" | "calculateerr" | "disabled";
-  onClick: () => void;
+  onClick: any;
 }
 
 function Button({ children, style, onClick }: ButtonProps) {
