@@ -61,12 +61,12 @@ function Compositecell({ day, month, year, compositeMonth, compositeYear, date, 
   useEffect(() => {
     if (setFirstCell && date === "1") {
       setFirstCell([
-        firstPosValue.toString(), 
-        secondPosValue.toString(), 
-        thirdPosValue.toString(), 
-        fourthPosValue.toString(), 
-        fifthPosValue.toString(), 
-        sixthPosValue.toString()
+        toRoman(firstPosValue),
+        toRoman(secondPosValue),
+        toRoman(thirdPosValue),
+        toRoman(fourthPosValue),
+        toRoman(fifthPosValue),
+        toRoman(sixthPosValue),
       ], fullDate);
     }
   }, [fullDate]);
