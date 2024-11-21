@@ -15,7 +15,9 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Расчет портрета",
-  description: "Сайт для расчета Психологического портрета и Композита дня",
+  description: `Рассчитать Психологический портрет
+  Сайт для расчета Психологического портрета и Композита дня
+  С помощью аркан и системы 22 патерна`,
 };
 
 export default function RootLayout({

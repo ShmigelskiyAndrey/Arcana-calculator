@@ -16,19 +16,19 @@ function Cart2() {
           <div className={styles.subtitle}>I ступень</div>
             <Arrow color={"gradient"}></Arrow>
         </div>
-        <div className={styles.text}>Основы работы с психологическим портретом</div>
+        <div className={styles.text}><a href="https://co-creationoflife.info/ark" target="blank" rel="nofollow">Основы работы с психологическим портретом</a></div>
 
         <div className={styles.step}>
           <div className={styles.subtitle}>II ступень</div>
           <Arrow color={"gradient"}></Arrow>
         </div>
-        <div className={styles.text}>Проработка связок паттернов</div>
+        <div className={styles.text}><a href="https://co-creationoflife.info/ark2" target="blank" rel="nofollow">Проработка связок паттернов</a></div>
 
         <div className={styles.step}>
           <div className={styles.subtitle}>III ступень</div>
           <Arrow color={"gradient"}></Arrow>
         </div>
-        <div className={styles.text}>Арканы PRO</div>
+        <div className={styles.text}><a href="https://co-creationoflife.info/ark3" target="blank" rel="nofollow">Арканы PRO</a></div>
       </div> 
     </div>
   )
