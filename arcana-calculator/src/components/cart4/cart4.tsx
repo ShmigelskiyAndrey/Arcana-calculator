@@ -1,5 +1,4 @@
 import styles from "./cart4.module.css";
-import Image from "next/image";
 
 function Cart4() {
   return (
@@ -10,12 +9,6 @@ function Cart4() {
       </div>
       <div className={styles.imageContainer}>
         <img className={styles.image} src="/diplom.webp" alt="Diploma"></img>
-        {/* <Image         
-          className={styles.image}
-          src="/diplom.webp"
-          width={241}
-          height={223}
-          alt="Diploma"/> */}
       </div>
     </div>
   )
