@@ -31,6 +31,11 @@
   text-align: center;
 }
 
+.image {
+  width: 241px;
+  height: 223px;
+}
+
 @media (min-width: 960px) {
   .container {
     grid-column: 3 / 4;
@@ -40,7 +45,6 @@
     max-height: none;
     max-width: none;
     margin-top: 20px;
-    align-self: flex-end;
   }
 
   .imageContainer {

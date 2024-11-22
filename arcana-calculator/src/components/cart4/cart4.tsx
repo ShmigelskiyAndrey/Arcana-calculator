@@ -9,12 +9,13 @@ function Cart4() {
         предоставляющий право на организацию и проведение психологического консультирования.
       </div>
       <div className={styles.imageContainer}>
-        <Image         
+        <img className={styles.image} src="/diplom.webp" alt="Diploma"></img>
+        {/* <Image         
           className={styles.image}
           src="/diplom.webp"
           width={241}
           height={223}
-          alt="Diploma"/>
+          alt="Diploma"/> */}
       </div>
     </div>
   )

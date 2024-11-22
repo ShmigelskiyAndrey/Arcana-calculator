@@ -11,12 +11,13 @@ function Footer() {
           <div className={styles.text}><a href="https://co-creationoflife.ru/cms/system/legal" target="blank" rel="nofollow">Договоры оказания услуг в школе Со-Творчество Жизни</a></div>
         </div>
         <div className={styles.logo}>
-          <Image         
+          <img className={styles.image} src="/mainlogowhitetext.png" alt="Logo of the company"></img>
+          {/* <Image         
           className={styles.image}
           src="/mainlogowhitetext.png"
           width={150}
           height={103}
-          alt="Logo of the company"/>
+          alt="Logo of the company"/> */}
         </div>
         <div className={styles.contacts}>
           <div className={styles.text}>г. Ростов-на-Дону</div>

@@ -32,6 +32,11 @@
   cursor: pointer;
 }
 
+.image {
+  width: 150px;
+  height: 103px;
+}
+
 @media (min-width: 768px) {
   .wrapper {
     display: flex;
