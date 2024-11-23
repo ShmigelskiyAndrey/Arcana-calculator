@@ -28,8 +28,8 @@ function Portraitcart({ className, top, pos, day = "1", month = "1", year = "200
   let addends: string[] = [];
   let calculation = "";
 
-  const { sum: firstPos, addends: firstAddends } = sumAndAdjust(day);
-  const { sum: secondPos, addends: secondAddends } = sumAndAdjust(month);
+  const { sum: firstPos, addends: firstAddends } = calculatePos(day);
+  const { sum: secondPos, addends: secondAddends } = calculatePos(month);
   const { sum: thirdPos, addends: thirdAddends } = sumAndAdjust(year);
 
   const positions = {
@@ -74,6 +74,22 @@ function Portraitcart({ className, top, pos, day = "1", month = "1", year = "200
   function sumAndAdjust(input: string): { sum: number; addends: number[] } {
     const addends = input.split('').map(char => parseInt(char, 10));
     let sum = addends.reduce((acc, num) => acc + num, 0);
+
+    return { sum, addends }
+  }
+
+  function calculatePos(input: string): { sum: number; addends: number[] } {
+    const addends = input.split('').map(char => parseInt(char, 10));
+    let sum
+    let appends
+
+    if ( +input > 22 ) {
+      sum = (+input - 22)
+      appends = (+input - 22);
+    }
+    sum = +input;
+    appends = +input;
+    
 
     return { sum, addends }
   }
