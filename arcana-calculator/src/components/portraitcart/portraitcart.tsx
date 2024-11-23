@@ -43,7 +43,7 @@ function Portraitcart({ className, top, pos, day = "1", month = "1", year = "200
     "8": { value: secondPos + firstPos + secondPos + secondPos + thirdPos, addends: [toRoman(2), toRoman(6)] },
     "9": { value: Math.abs(firstPos - secondPos), calculation: `${toRoman(1)} - ${toRoman(2)}` },
     "10": { value: Math.abs(secondPos - thirdPos), calculation: `${toRoman(2)} - ${toRoman(3)}` },
-    "11": { value: Math.abs((firstPos - secondPos) - (secondPos - thirdPos)), calculation: `${toRoman(9)} - ${toRoman(10)}` },
+    "11": { value: Math.abs(Math.abs(secondPos - thirdPos) - Math.abs(firstPos - secondPos)), calculation: `${toRoman(9)} - ${toRoman(10)}` },
     "12": { value: thirdPos + firstPos + secondPos + secondPos + firstPos + secondPos + secondPos + thirdPos, addends: [toRoman(7), toRoman(8)] },
     "13": { value: firstPos + firstPos + secondPos + firstPos + secondPos + secondPos + thirdPos, addends: [toRoman(1), toRoman(4), toRoman(6)] },
     "14": { value: thirdPos + secondPos + thirdPos + firstPos + secondPos + secondPos + thirdPos, addends: [toRoman(3), toRoman(5), toRoman(6)] },
