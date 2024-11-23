@@ -13,7 +13,7 @@ type PortraitcartProps = {
 function toRoman(num: number): string {
   num = Math.abs(num);
   const romanNumerals: { [key: number]: string } = {
-    0: "0", 1: "I", 2: "II", 3: "III", 4: "IV", 5: "V",
+    0: "XXII", 1: "I", 2: "II", 3: "III", 4: "IV", 5: "V",
     6: "VI", 7: "VII", 8: "VIII", 9: "IX", 10: "X",
     11: "XI", 12: "XII", 13: "XIII", 14: "XIV", 15: "XV",
     16: "XVI", 17: "XVII", 18: "XVIII", 19: "XIX", 20: "XX",
@@ -79,17 +79,15 @@ function Portraitcart({ className, top, pos, day = "1", month = "1", year = "200
   }
 
   function calculatePos(input: string): { sum: number; addends: number[] } {
-    const addends = input.split('').map(char => parseInt(char, 10));
     let sum
-    let appends
+    let finalInput = [+input]
 
     if ( +input > 22 ) {
       sum = (+input - 22)
-      appends = (+input - 22);
+      finalInput = [sum]
     }
     sum = +input;
-    appends = +input;
-    
+    const addends = finalInput;
 
     return { sum, addends }
   }
