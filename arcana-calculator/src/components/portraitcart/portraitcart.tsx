@@ -41,9 +41,9 @@ function Portraitcart({ className, top, pos, day = "1", month = "1", year = "200
     "6": { value: firstPos + secondPos + secondPos + thirdPos, addends: [toRoman(4), toRoman(5)] },
     "7": { value: thirdPos + firstPos + secondPos, addends: [toRoman(3), toRoman(4)] },
     "8": { value: secondPos + firstPos + secondPos + secondPos + thirdPos, addends: [toRoman(2), toRoman(6)] },
-    "9": { value: Math.abs(firstPos - secondPos), calculation: `${toRoman(1)} - ${toRoman(2)}` },
-    "10": { value: Math.abs(secondPos - thirdPos), calculation: `${toRoman(2)} - ${toRoman(3)}` },
-    "11": { value: Math.abs(Math.abs(secondPos - thirdPos) - Math.abs(firstPos - secondPos)), calculation: `${toRoman(9)} - ${toRoman(10)}` },
+    "9": { value: (firstPos > secondPos) ? (Math.abs(firstPos - secondPos)) : (Math.abs(secondPos - firstPos)), calculation: `${toRoman(1)} - ${toRoman(2)}` },
+    "10": { value: (secondPos > thirdPos) ? (Math.abs(secondPos - thirdPos)) : (Math.abs(thirdPos - secondPos)), calculation: `${toRoman(2)} - ${toRoman(3)}` },
+    "11": { value: (Math.abs(firstPos - secondPos) < Math.abs(secondPos - thirdPos)) ? (Math.abs(Math.abs(secondPos - thirdPos) - Math.abs(firstPos - secondPos))) : (Math.abs(Math.abs(firstPos - secondPos) - Math.abs(secondPos - thirdPos))), calculation: `${toRoman(9)} - ${toRoman(10)}` },
     "12": { value: thirdPos + firstPos + secondPos + secondPos + firstPos + secondPos + secondPos + thirdPos, addends: [toRoman(7), toRoman(8)] },
     "13": { value: firstPos + firstPos + secondPos + firstPos + secondPos + secondPos + thirdPos, addends: [toRoman(1), toRoman(4), toRoman(6)] },
     "14": { value: thirdPos + secondPos + thirdPos + firstPos + secondPos + secondPos + thirdPos, addends: [toRoman(3), toRoman(5), toRoman(6)] },
@@ -75,6 +75,10 @@ function Portraitcart({ className, top, pos, day = "1", month = "1", year = "200
     const addends = input.split('').map(char => parseInt(char, 10));
     let sum = addends.reduce((acc, num) => acc + num, 0);
 
+    if (sum > 22) {
+      sum = sum - 22
+    }
+
     return { sum, addends }
   }
 
@@ -85,8 +89,9 @@ function Portraitcart({ className, top, pos, day = "1", month = "1", year = "200
     if ( +input > 22 ) {
       sum = (+input - 22)
       finalInput = [sum]
+    } else {
+      sum = +input;
     }
-    sum = +input;
     const addends = finalInput;
 
     return { sum, addends }
