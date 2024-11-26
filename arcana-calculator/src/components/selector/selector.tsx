@@ -49,13 +49,12 @@ function Selector() {
 
     handleResetComposite();
 
-    setFullMonthVisability("visible");
-
     if (selectedButton === "personality") {
       setTitleValue("психологический портрет")
     }
     if (selectedButton === "composite") {
-      setTitleValue("композит дня\\месяца")
+      setTitleValue("композит дня\\месяца");
+      setFullMonthVisability("visible");
     }
     if (selectedButton === "personality") {
       setPortraitVisible("visible")
