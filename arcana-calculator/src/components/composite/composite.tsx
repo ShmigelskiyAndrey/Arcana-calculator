@@ -3,7 +3,18 @@ import { Compositecell } from "../compositecell/compositecell";
 import styles from "./composite.module.css";
 import cn from "classnames";
 
-function Composite({ day, month, year, compositeMonth, compositeYear, visability, onResetSelectedCell }:any) {
+interface CompositeProps {
+  day: any;
+  month: any;
+  year: any;
+  compositeMonth: any;
+  compositeYear: any;
+  visability: any;
+  onResetSelectedCell: any;
+  additional?: boolean;
+}
+
+function Composite({ day, month, year, compositeMonth, compositeYear, visability, onResetSelectedCell, additional }:CompositeProps) {
   const [selectedArcana, setSelectedArcana] = useState<string[]>([]);
   const weeks = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
   const [fullDate, setFullDate] = useState<string>();
@@ -56,7 +67,8 @@ function Composite({ day, month, year, compositeMonth, compositeYear, visability
     setDays(localDays);
   }, [compositeYear, compositeMonth]);
 
-  const containerClass = cn(styles.container, {[styles.hidden]: visability === "hidden",})
+  const containerClass = cn(styles.container, {[styles.hidden]: visability === "hidden", [styles.additionalContainer]: additional === true});
+  const summaryClass = cn(styles.summary, {[styles.additionalSummary]: additional === true});
 
   return (
     <div className={containerClass}>
@@ -74,10 +86,11 @@ function Composite({ day, month, year, compositeMonth, compositeYear, visability
           date={date} 
           onCellClick={(arcana, fullDate) => handleCellClick(arcana, fullDate, index)} 
           isSelected={selectedCellIndex === index}
-          setFirstCell={index === firstElemIndex ? setFirstCell : undefined}>
+          setFirstCell={index === firstElemIndex ? setFirstCell : undefined}
+          additional={additional === true ? true : false}>
           </Compositecell>)}
       </div>
-      <div className={styles.summary}>
+      <div className={summaryClass}>
         <div className={styles.fulldate}>{fullDate}</div>
         <div className={styles.arcanas}>
           {selectedArcana
@@ -85,7 +98,6 @@ function Composite({ day, month, year, compositeMonth, compositeYear, visability
             : ""}
         </div>
       </div>
-      <div className={styles.text}>Расчет всех дней на одном экране можно посмотреть в полноэкранной версии с компьютера</div>
     </div>
   )
 }

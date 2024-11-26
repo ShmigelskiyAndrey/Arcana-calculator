@@ -20,6 +20,8 @@ function Selector() {
   const [portraitVisible, setPortraitVisible] = useState("notVisible");
   const [titleValue, setTitleValue] = useState("Рассчитать психологический портрет");
   const [resetCompositeState, setResetCompositeState] = useState(false);
+  const [fullMonth, setFullMonth] = useState("Весь месяц");
+  const [fullMonthVisability, setFullMonthVisability] = useState("hidden");
 
   const handleResetComposite = () => {
     setResetCompositeState(true);
@@ -29,6 +31,8 @@ function Selector() {
   const handleButtonClick = (buttonType: ButtonType) => {
     setCompositeVisible("notVisible");
     setPortraitVisible("notVisible");
+    setFullMonthVisability("hidden");
+    setFullMonth("Весь месяц");
     if (buttonType === "personality") {
       setTitleValue("Рассчитать психологический портрет")
     }
@@ -44,6 +48,8 @@ function Selector() {
     }
 
     handleResetComposite();
+
+    setFullMonthVisability("visible");
 
     if (selectedButton === "personality") {
       setTitleValue("психологический портрет")
@@ -66,8 +72,10 @@ function Selector() {
   };
 
   const validateYear = (value: string, isComposite = false) => {
-    setCompositeVisible("notVisible")
-    setPortraitVisible("notVisible")
+    setCompositeVisible("notVisible");
+    setPortraitVisible("notVisible");
+    setFullMonthVisability("hidden");
+    setFullMonth("Весь месяц");
     const sanitized = value.replace(/\D/g, "").slice(0, 4);
 
     if (!isComposite && day && month) {
@@ -79,8 +87,10 @@ function Selector() {
   };
 
   const validateMonth = (value: string) => {
-    setCompositeVisible("notVisible")
-    setPortraitVisible("notVisible")
+    setCompositeVisible("notVisible");
+    setPortraitVisible("notVisible");
+    setFullMonthVisability("hidden");
+    setFullMonth("Весь месяц");
     const sanitized = value.replace(/\D/g, "");
 
     return sanitized;
@@ -99,8 +109,10 @@ function Selector() {
   };
 
   const validateDay = (value: string) => {
-    setCompositeVisible("notVisible")
-    setPortraitVisible("notVisible")
+    setCompositeVisible("notVisible");
+    setPortraitVisible("notVisible");
+    setFullMonthVisability("hidden");
+    setFullMonth("Весь месяц");
     return value.replace(/\D/g, "");
   };
 
@@ -117,6 +129,15 @@ function Selector() {
     if (isNaN(numericValue) || numericValue < 1) return "1";
     return Math.min(numericValue, maxDays).toString();
   };
+
+  const showFullMonth = () => {
+    if (fullMonth === "Весь месяц") {
+      setFullMonth("Скрыть весь месяц");
+    }
+    if (fullMonth === "Скрыть весь месяц") {
+      setFullMonth("Весь месяц");
+    }
+  }
 
   return (
     <div className={styles.container}>
@@ -176,6 +197,21 @@ function Selector() {
       <Composite day={day} month={month} year={year} compositeMonth={compositeMonth} compositeYear={compositeYear}
       visability={compositeVisible === "notVisible" ? "hidden" : "visible"} onResetSelectedCell={resetCompositeState}></Composite>
       <Portrait day={day} month={month} year={year} visability={portraitVisible === "notVisible" ? "hidden" : "visible"}></Portrait>
+      <div className={styles.calculatebutton}>
+        <Button style={"additionalCalculate"} onClick={() => showFullMonth()} visability={fullMonthVisability === "hidden" ? "hidden" : "visible"}>{fullMonth}</Button>
+      </div>
+      {fullMonth === "Весь месяц" 
+        ? "" 
+        : <Composite 
+        additional={true}
+        day={day} 
+        month={month} 
+        year={year} 
+        compositeMonth={compositeMonth} 
+        compositeYear={compositeYear}
+        visability={compositeVisible === "notVisible" ? "hidden" : "visible"} 
+        onResetSelectedCell={resetCompositeState}></Composite>
+      }
     </div>
   )
 }

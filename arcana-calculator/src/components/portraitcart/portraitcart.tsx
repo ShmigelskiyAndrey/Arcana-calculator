@@ -33,9 +33,9 @@ function Portraitcart({ className, top, pos, day = "1", month = "1", year = "200
   const { sum: thirdPos, addends: thirdAddends } = sumAndAdjust(year);
 
   const positions = {
-    "1": { value: firstPos, addends: firstAddends.map(toRoman) },
-    "2": { value: secondPos, addends: secondAddends.map(toRoman) },
-    "3": { value: thirdPos, addends: thirdAddends.map(toRoman) },
+    "1": { value: firstPos },
+    "2": { value: secondPos },
+    "3": { value: thirdPos },
     "4": { value: firstPos + secondPos, addends: [toRoman(1), toRoman(2)] },
     "5": { value: secondPos + thirdPos, addends: [toRoman(2), toRoman(3)] },
     "6": { value: firstPos + secondPos + secondPos + thirdPos, addends: [toRoman(4), toRoman(5)] },

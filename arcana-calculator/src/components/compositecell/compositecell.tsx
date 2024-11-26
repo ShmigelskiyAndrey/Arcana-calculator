@@ -12,6 +12,7 @@ interface CompositecellProps {
   onCellClick?: (arcana: string[], date: string) => void;
   isSelected: boolean;
   setFirstCell?: (arcana: string[], fullDate: string) => void;
+  additional: boolean;
 }
 
 function toRoman(num: number): string {
@@ -26,7 +27,7 @@ function toRoman(num: number): string {
   return romanNumerals[num] || "";
 }
 
-function Compositecell({ day, month, year, compositeMonth, compositeYear, date, onCellClick, isSelected, setFirstCell }: CompositecellProps) {
+function Compositecell({ day, month, year, compositeMonth, compositeYear, date, onCellClick, isSelected, setFirstCell, additional }: CompositecellProps) {
   const formattedDay = date.padStart(2, "0");
   const formattedMonth = compositeMonth.toString().padStart(2, "0");
   const fullDate = `${formattedDay}.${formattedMonth}.${compositeYear}`;
@@ -73,20 +74,23 @@ function Compositecell({ day, month, year, compositeMonth, compositeYear, date, 
 
   if (!date) {return <div className={styles.container}></div>}
 
-  const containerClass = cn(styles.container, {
-    [styles.selected]: isSelected === true})
+  const containerClass = cn(styles.container, { [styles.selected]: isSelected === true , [styles.additionalContainer]: additional === true});
+  const dateClass = cn(styles.date, {[styles.additionalDate]: additional === true});
+  const fulldateClass = cn(styles.fulldate, {[styles.additionalFulldate]: additional === true});
+  const calculationClass = cn(styles.calculation, {[styles.additionalCalculation]: additional === true});
+  const calcvalueClass = cn(styles.calcvalue, {[styles.additionalCalcvalue]: additional === true});
 
   return (
     <div className={containerClass} onClick={handleClick}>
-      <div className={styles.date}>{date}</div>
-      <div className={styles.fulldate}>{fullDate}</div>
-      <div className={styles.calculation}>
-        <div className={styles.calcvalue}>{toRoman(firstPosValue)}</div>
-        <div className={styles.calcvalue}>{toRoman(secondPosValue)}</div>
-        <div className={styles.calcvalue}>{toRoman(thirdPosValue)}</div>
-        <div className={styles.calcvalue}>{toRoman(fourthPosValue)}</div>
-        <div className={styles.calcvalue}>{toRoman(fifthPosValue)}</div>
-        <div className={styles.calcvalue}>{toRoman(sixthPosValue)}</div>
+      <div className={dateClass}>{date}</div>
+      <div className={fulldateClass}>{fullDate}</div>
+      <div className={calculationClass}>
+        <div className={calcvalueClass}>{toRoman(firstPosValue)}</div>
+        <div className={calcvalueClass}>{toRoman(secondPosValue)}</div>
+        <div className={calcvalueClass}>{toRoman(thirdPosValue)}</div>
+        <div className={calcvalueClass}>{toRoman(fourthPosValue)}</div>
+        <div className={calcvalueClass}>{toRoman(fifthPosValue)}</div>
+        <div className={calcvalueClass}>{toRoman(sixthPosValue)}</div>
       </div>
     </div>
   )
