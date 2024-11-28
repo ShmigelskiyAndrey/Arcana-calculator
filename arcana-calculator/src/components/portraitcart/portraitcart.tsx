@@ -31,6 +31,9 @@ function Portraitcart({ className, top, pos, day = "1", month = "1", year = "200
   const { sum: firstPos, addends: firstAddends } = calculatePos(day);
   const { sum: secondPos, addends: secondAddends } = calculatePos(month);
   const { sum: thirdPos, addends: thirdAddends } = sumAndAdjust(year);
+  const ninthPosValue = (firstPos > secondPos) ? ((Math.abs(firstPos - secondPos)) === 0 ? 22 : (Math.abs(firstPos - secondPos))) : ((Math.abs(secondPos - firstPos)) === 0 ? 22 : (Math.abs(secondPos - firstPos)));
+  const tenthPosValue = (secondPos > thirdPos) ? ((Math.abs(secondPos - thirdPos)) === 0 ? 22 : (Math.abs(secondPos - thirdPos))) : ((Math.abs(thirdPos - secondPos)) === 0 ? 22 : (Math.abs(thirdPos - secondPos)));
+  const eleventhPosValue = ((ninthPosValue > tenthPosValue) ? (ninthPosValue - tenthPosValue) : (tenthPosValue - ninthPosValue));
 
   const positions = {
     "1": { value: firstPos },
@@ -41,9 +44,9 @@ function Portraitcart({ className, top, pos, day = "1", month = "1", year = "200
     "6": { value: firstPos + secondPos + secondPos + thirdPos, addends: [toRoman(4), toRoman(5)] },
     "7": { value: thirdPos + firstPos + secondPos, addends: [toRoman(3), toRoman(4)] },
     "8": { value: secondPos + firstPos + secondPos + secondPos + thirdPos, addends: [toRoman(2), toRoman(6)] },
-    "9": { value: (firstPos > secondPos) ? (Math.abs(firstPos - secondPos)) : (Math.abs(secondPos - firstPos)), calculation: `${toRoman(1)} - ${toRoman(2)}` },
-    "10": { value: (secondPos > thirdPos) ? (Math.abs(secondPos - thirdPos)) : (Math.abs(thirdPos - secondPos)), calculation: `${toRoman(2)} - ${toRoman(3)}` },
-    "11": { value: (Math.abs(firstPos - secondPos) < Math.abs(secondPos - thirdPos)) ? (Math.abs(Math.abs(secondPos - thirdPos) - Math.abs(firstPos - secondPos))) : (Math.abs(Math.abs(firstPos - secondPos) - Math.abs(secondPos - thirdPos))), calculation: `${toRoman(9)} - ${toRoman(10)}` },
+    "9": { value: ninthPosValue, calculation: `${toRoman(1)} - ${toRoman(2)}` },
+    "10": { value: tenthPosValue, calculation: `${toRoman(2)} - ${toRoman(3)}` },
+    "11": { value: eleventhPosValue, calculation: `${toRoman(9)} - ${toRoman(10)}` },
     "12": { value: thirdPos + firstPos + secondPos + secondPos + firstPos + secondPos + secondPos + thirdPos, addends: [toRoman(7), toRoman(8)] },
     "13": { value: firstPos + firstPos + secondPos + firstPos + secondPos + secondPos + thirdPos, addends: [toRoman(1), toRoman(4), toRoman(6)] },
     "14": { value: thirdPos + secondPos + thirdPos + firstPos + secondPos + secondPos + thirdPos, addends: [toRoman(3), toRoman(5), toRoman(6)] },
@@ -67,7 +70,6 @@ function Portraitcart({ className, top, pos, day = "1", month = "1", year = "200
       calculation = position.calculation;
     }
   }
-
 
   value = ((value - 1) % 22) + 1;
 
