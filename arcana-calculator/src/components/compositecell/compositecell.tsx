@@ -70,7 +70,7 @@ function Compositecell({ day, month, year, compositeMonth, compositeYear, date, 
         toRoman(sixthPosValue),
       ], fullDate);
     }
-  }, [fullDate]);
+  }, [fullDate, day, month, year]);
 
   if (!date) {return <div className={styles.container}></div>}
 
